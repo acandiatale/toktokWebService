@@ -73,12 +73,11 @@ html, body {
 #nav{
     display: flex;
     flex-direction: column;
-    flex: 2;
-    width: 100%;
+    width: 250px;
     height: 100%;
 }
 #logo{
-    width: 100%;
+    width: 250px;
 }
 #logo_img{
     margin-top: 10%;
