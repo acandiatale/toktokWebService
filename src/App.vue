@@ -5,11 +5,11 @@
             <img id="logo_img" src="./assets/logo.png">
         </div>
         <div id="navbar">
-            <ul>
-                <li id="li_content" v-on:click="getSubList" v-for="item in items" :key="item.text">
+            <ul id="mainList">
+                <li @mouseenter="getSubList(item.id)" @mouseleave="outSubList(item.id)" id="li_main" v-for="item in items" :key="item.id">
                     {{item.text}}
-                    <ul id="subList">
-                        <li v-for="content in items.content" :key="content.text">
+                    <ul id="subList" v-show="item.show">
+                        <li id="li_sub" v-for="content in item.content" :key="content.text">
                             {{content.text}}
                         </li>
                     </ul>
@@ -31,19 +31,22 @@ export default {
   data: function() {
       return {
         items: [
-            {text: "톡톡경희한의원", content: [{text: "인사말"}, {text: "원장님소개"}]},
-            {text: "기본진료"},
-            {text: "공간척추교정"},
-            {text: "턱관절교정"},
-            {text: "치료이야기"},
-            {text: "고객센터"}
+            {show: false, id: 0, text: "톡톡경희한의원", content: [{text: "인사말"}, {text: "원장님소개"}]},
+            {show: false, id: 1, text: "기본진료", content: [{text: "인사말"}, {text: "원장님소개"}]},
+            {show: false, id: 2, text: "공간척추교정"},
+            {show: false, id: 3, text: "턱관절교정"},
+            {show: false, id: 4, text: "치료이야기"},
+            {show: false, id: 5, text: "고객센터"}
         ]
       }
   },
   methods: {
-      getSubList: function() {
-
-      }
+        getSubList: function(id) {
+            this.items[id].show = true;
+        },
+        outSubList: function(id) {
+            this.items[id].show = false;
+        }
   }
 }
 </script>
@@ -64,12 +67,14 @@ html, body {
 #app{
     display: flex;
     flex-direction: row;
+    width: 100%;
     height: 100%;
 }
 #nav{
     display: flex;
     flex-direction: column;
     flex: 2;
+    width: 100%;
     height: 100%;
 }
 #logo{
@@ -82,22 +87,43 @@ html, body {
     height: 59px;
     max-height: 5rem;
 }
-#navbar ul{
+#mainList{
+    display: flex;
+    flex-direction: column;
     margin-top: 18%;
     margin-left: 12%;
 }
-#navbar ul li{
+#li_main{
+    height: 2rem;
     margin-bottom: 5%;
     font-weight: bold;
     margin-right: 10%;
     font-size: 20px;
-
 }
-#navbar ul li:hover{
+#li_main:hover{
     margin-bottom: 5%;
     font-weight: bold;
     color: darksalmon
 }
+#subList{
+    /* display: none; */
+    background: rgba(0,0,0,0.8);
+    font-size: 17px;
+    position: relative;
+    width: 150px;
+    height: auto;
+    display: block;
+    z-index: 1;
+    margin-top: -18%;
+    left: 60%;
+}
+#li_sub{
+    padding-left: 5%;
+    color: grey;
+    font-weight: 50;
+    font-size: 15px;
+}
+
 #content{
     display: flex;
     flex: 8;
