@@ -6,9 +6,9 @@
         </div>
         <div id="navbar">
             <ul id="mainList">
-                <li @mouseenter="getSubList(item.id)" @mouseleave="outSubList(item.id)" id="li_main" v-for="item in items" :key="item.id">
+                <li @mouseenter="getSubList(item.id)" @mouseleave="outSubList()" id="li_main" v-for="item in items" :key="item.id">
                     {{item.text}}
-                    <ul id="subList" v-show="item.show">
+                    <ul id="subList" v-show="currentId == item.id">
                         <li id="li_sub" v-for="content in item.content" :key="content.text">
                             {{content.text}}
                         </li>
@@ -31,21 +31,22 @@ export default {
   data: function() {
       return {
         items: [
-            {show: false, id: 0, text: "톡톡경희한의원", content: [{text: "인사말"}, {text: "원장님소개"}]},
-            {show: false, id: 1, text: "기본진료", content: [{text: "인사말"}, {text: "원장님소개"}]},
-            {show: false, id: 2, text: "공간척추교정"},
-            {show: false, id: 3, text: "턱관절교정"},
-            {show: false, id: 4, text: "치료이야기"},
-            {show: false, id: 5, text: "고객센터"}
-        ]
+            {id: 0, text: "톡톡경희한의원", content: [{text: "인사말"}, {text: "원장님소개"}, {text: "병원갤러리"}, {text: "진료안내"}, {text: "오시는길"}]},
+            {id: 1, text: "기본진료", content: [{text: "침"}, {text: "약"}, {text: "부항"}, {text: "다이어트한약"}, {text: "교통사고"}]},
+            {id: 2, text: "공간척추교정", content: [{text: "공간척추교정법이란"}, {text: "특징 및 장점"}]},
+            {id: 3, text: "턱관절교정"},
+            {id: 4, text: "치료이야기"},
+            {id: 5, text: "고객센터"}
+        ],
+        currentId: 999,
       }
   },
   methods: {
         getSubList: function(id) {
-            this.items[id].show = true;
+            this.currentId = id;
         },
-        outSubList: function(id) {
-            this.items[id].show = false;
+        outSubList: function() {
+           this.currentId = 999;
         }
   }
 }
