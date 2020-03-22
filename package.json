@@ -11,7 +11,8 @@
     "buefy": "^0.8.13",
     "core-js": "^3.6.4",
     "node": "^13.10.1",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue-router": "^3.1.6"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.2.0",

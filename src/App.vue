@@ -4,10 +4,11 @@
         <div id="logo">
             <img id="logo_img" src="./assets/logo.png">
         </div>
+        
         <div id="navbar">
             <ul id="mainList">
                 <li @mouseenter="getSubList(item.id)" @mouseleave="outSubList()" id="li_main" v-for="item in items" :key="item.id">
-                    {{item.text}}
+                    <router-link :to="item.router" class="itemRouter">{{item.text}}</router-link>
                     <ul id="subList" v-show="currentId == item.id">
                         <li id="li_sub" v-for="content in item.content" :key="content.text">
                             {{content.text}}
@@ -21,6 +22,7 @@
 
     </div>
     <div id="content">
+        <router-view></router-view>
     </div>
   </div>
 </template>
@@ -31,12 +33,12 @@ export default {
   data: function() {
       return {
         items: [
-            {id: 0, text: "톡톡경희한의원", content: [{text: "인사말"}, {text: "원장님소개"}, {text: "병원갤러리"}, {text: "진료안내"}, {text: "오시는길"}]},
-            {id: 1, text: "기본진료", content: [{text: "침"}, {text: "약"}, {text: "부항"}, {text: "다이어트한약"}, {text: "교통사고"}]},
-            {id: 2, text: "공간척추교정", content: [{text: "공간척추교정법이란"}, {text: "특징 및 장점"}]},
-            {id: 3, text: "턱관절교정"},
-            {id: 4, text: "치료이야기"},
-            {id: 5, text: "고객센터"}
+            {id: 0, text: "톡톡경희한의원",router: "/introduction", content: [{text: "인사말", router: "/introduction"}, {text: "원장님소개"}, {text: "병원갤러리"}, {text: "진료안내"}, {text: "오시는길"}]},
+            {id: 1, text: "기본진료", router: "/care",content: [{text: "침"}, {text: "약"}, {text: "부항"}, {text: "다이어트한약"}, {text: "교통사고"}]},
+            {id: 2, text: "공간척추교정", router: "/chuna", content: [{text: "공간척추교정법이란"}, {text: "특징 및 장점"}, {text: "구성"}, {text: "안정성"}, {text: "치료도구"}, {text: "특효질환"}]},
+            {id: 3, text: "턱관절교정", router: "/jaw"},
+            {id: 4, text: "치료이야기", router: "/story"},
+            {id: 5, text: "고객센터", router: "/center"}
         ],
         currentId: 999,
       }
@@ -47,6 +49,9 @@ export default {
         },
         outSubList: function() {
            this.currentId = 999;
+        },
+        open: function(){
+
         }
   }
 }
@@ -94,6 +99,7 @@ html, body {
     margin-left: 12%;
 }
 #li_main{
+    color: black;
     height: 2rem;
     margin-bottom: 5%;
     font-weight: bold;
@@ -107,6 +113,7 @@ html, body {
 }
 #subList{
     /* display: none; */
+    
     background: rgba(0,0,0,0.8);
     font-size: 17px;
     position: relative;
@@ -115,15 +122,24 @@ html, body {
     display: block;
     z-index: 1;
     margin-top: -18%;
+    padding: 5%;
     left: 60%;
 }
 #li_sub{
+    content: "·";
     padding-left: 5%;
     color: grey;
     font-weight: 50;
     font-size: 15px;
 }
-
+.itemRouter{
+    color: black;
+}
+.itemRouter:hover{
+    margin-bottom: 5%;
+    font-weight: bold;
+    color: darksalmon
+}
 #content{
     display: flex;
     flex: 8;
