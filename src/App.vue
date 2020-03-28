@@ -7,23 +7,33 @@
         
         <div id="navbar">
             <ul id="mainList">
-                <li @mouseenter="getSubList(item.id)" @mouseleave="outSubList()" id="li_main" v-for="item in items" :key="item.id">
+                <li @mouseenter="getSubList(item.id)" @mouseleave="outSubList()" @click="changePage" id="li_main" v-for="item in items" :key="item.id">
                     <router-link :to="item.router" class="itemRouter">{{item.text}}</router-link>
                     <ul id="subList" v-show="currentId == item.id">
                         <li class="li_sub" v-for="content in item.content" :key="content.text">
-                            <router-link :to="content.router" class="subItemRouter">{{content.text}}</router-link>
+                            <!-- <router-link :to="content.router" class="subItemRouter">{{content.text}}</router-link> -->
+                            {{content.text}}
                         </li>
                     </ul>
                 </li>
             </ul>
         </div>
     </header>
+    <div id="menu">
+        <ul>
+            <li id="menuList" v-for="item in menu" :key="item.text">
+                {{item.text}}
+            </li>
+        </ul>
+    </div>
     <div id="nav_mobile">
 
     </div>
     <div id="content">
         <router-view></router-view>
     </div>
+    <footer v-show="currentPage == -1">
+    </footer>
   </div>
 </template>
 
@@ -34,7 +44,8 @@ export default {
       return {
         items: [
             {id: 0, text: "톡톡경희한의원",router: "/introduction",
-                content: [{text: "인사말", router: "/introduction"}, {text: "원장님소개", router: "/introduction"}, {text: "병원갤러리", }, {text: "진료안내"}, {text: "오시는길"}]},
+                content: [{text: "인사말", router: "/introduction"}, {text: "원장님소개", router: "/introduction02"}, {text: "병원갤러리", router: "/introduction03"},
+                {text: "진료안내", router: "/introduction04"}, {text: "오시는길", router: "/introduction05"}]},
             {id: 1, text: "기본진료", router: "/care",
                 content: [{text: "침"}, {text: "약"}, {text: "부항"}, {text: "다이어트한약"}, {text: "교통사고"}]},
             {id: 2, text: "공간척추교정", router: "/chuna", 
@@ -46,22 +57,39 @@ export default {
             {id: 5, text: "고객센터", router: "/center",
                 content: [{text: "공지사항"}]}
         ],
+        menu: [
+            {text: "HOME", router: "/main"},
+            {text: "JOIN"},
+            {text: "LOGIN"},
+            {text: "ADMIN"},
+        ],
         currentId: -1,
+        currentPage: -1,
       }
   },
   methods: {
         getSubList: function(id) {
             this.currentId = id;
+            console.log(this.currentId);
         },
         outSubList: function() {
            this.currentId = -1;
+           console.log(this.currentId);
         },
         getMain: function(){
-            this.$router.push("/main");
-        }
+            if(this.currentPage !== -1){
+                this.$router.push("/main");
+                this.currentPage = -1;
+            }
+        },
+        changePage: function(){
+            this.currentPage = 0;
+            console.log("currentPage:" + this.currentPage);
+        },
   },
   mounted(){
       this.$router.push("/main");
+      console.log("currentPage:" + this.currentPage);
   },
 }
 </script>
@@ -78,6 +106,8 @@ html, body {
     height: 100%;
 }
 #header{
+    background-color: white;
+    z-index: 998;
     display: flex;
     flex: 2;
     flex-direction: column;
@@ -154,7 +184,7 @@ html, body {
     color: darksalmon
 }
 #content{
-    display: flex;
+    /* display: flex; */
     background-color: black;
 }
 
@@ -162,6 +192,41 @@ html, body {
     display: none;
 }
 
+/* 우측 상단 메뉴 CSS */
+#menu{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    padding: 0 20px;
+    background: #060606;
+}
+#menu ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+#menu ul li:first-child{
+    margin-left: 0px;
+}
+#menu ul li{
+    margin-left: 20px;
+    height: 30px;
+    font-size: 10px;
+    line-height: 28px;
+    color: white;
+}
+/* footer */
+footer{
+    display: table;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100px;
+    background: #272727;
+}
 @media screen and (max-width: 1024px){
     #app{
         flex-direction: column;
