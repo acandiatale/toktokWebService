@@ -1,5 +1,6 @@
 <template>
-    <p>뿌욥</p>
+    <div>
+    </div>
 </template>
 <script>
 export default {

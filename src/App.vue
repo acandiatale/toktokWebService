@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-      <div id="nav">
+      <header id="header">
         <div id="logo">
-            <img id="logo_img" src="./assets/logo.png">
+            <img id="logo_img" src="./assets/logo.png" @click="getMain">
         </div>
         
         <div id="navbar">
@@ -17,7 +17,7 @@
                 </li>
             </ul>
         </div>
-    </div>
+    </header>
     <div id="nav_mobile">
 
     </div>
@@ -56,10 +56,13 @@ export default {
         outSubList: function() {
            this.currentId = -1;
         },
-        open: function(){
-
+        getMain: function(){
+            this.$router.push("/main");
         }
-  }
+  },
+  mounted(){
+      this.$router.push("/main");
+  },
 }
 </script>
 
@@ -74,39 +77,42 @@ html, body {
     width: 100%;
     height: 100%;
 }
-#nav{
+#header{
     display: flex;
+    flex: 2;
     flex-direction: column;
-    width: 250px;
+    width: 20%;
     height: 100%;
-}
-#logo{
-    width: 250px;
+    max-width: 340px;
+    min-width: 220px;
 }
 #logo_img{
     margin-top: 80px;
-    margin-left: 40px;
+    margin-left: 17%;
     margin-bottom: 20px;
     width: 167px;
     height: 59px;
     max-height: 5rem;
 }
+#logo_img:hover{
+    cursor: pointer;
+}
 #mainList{
     display: flex;
     flex-direction: column;
     margin-top: 25px;
-    margin-left: 50px;
+    margin-left: 20%;
 }
 #li_main{
     color: black;
     height: 2rem;
-    margin-bottom: 5%;
+    margin-bottom: 15px;
     font-weight: bold;
     margin-right: 10%;
     font-size: 20px;
 }
 #li_main:hover{
-    margin-bottom: 5%;
+    margin-bottom: 15px;
     font-weight: bold;
     color: darksalmon
 }
@@ -149,7 +155,7 @@ html, body {
 }
 #content{
     display: flex;
-    flex: 8;
+    background-color: black;
 }
 
 #nav_mobile{

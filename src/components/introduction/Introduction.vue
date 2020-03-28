@@ -1,5 +1,5 @@
 <template>
-    <p>뿌에에엥</p>
+    <p>뷰웁</p>
 </template>
 <script>
 export default {
