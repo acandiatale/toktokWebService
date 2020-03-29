@@ -106,6 +106,7 @@ html, body {
     height: 100%;
 }
 #header{
+    /* position: absolute; */
     background-color: white;
     z-index: 998;
     display: flex;
@@ -114,7 +115,7 @@ html, body {
     width: 20%;
     height: 100%;
     max-width: 340px;
-    min-width: 220px;
+    min-width: 230px;
 }
 #logo_img{
     margin-top: 80px;
@@ -184,7 +185,10 @@ html, body {
     color: darksalmon
 }
 #content{
-    /* display: flex; */
+    display: flex;
+    flex: 8;
+    /* width: 100%;
+    height: 100%; */
     background-color: black;
 }
 
@@ -197,7 +201,7 @@ html, body {
     position: absolute;
     top: 0;
     right: 0;
-    z-index: 2;
+    z-index: 999;
     padding: 0 20px;
     background: #060606;
 }
@@ -227,7 +231,7 @@ footer{
     height: 100px;
     background: #272727;
 }
-@media screen and (max-width: 1024px){
+ /* @media screen and (max-width: 1024px){
     #app{
         flex-direction: column;
     }
@@ -243,16 +247,16 @@ footer{
     #navbar{
         display: none;
     }
-    /* #nav {
+    #nav {
         display: none;
-    } */
+    }
     #content{
         flex: 16;
     }
-    @font-face { 
+}  */
+ @font-face { 
     font-family: 'GmarketSansLight'; 
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff'); 
     font-weight: normal; 
     font-style: normal; }
-}
 </style>
