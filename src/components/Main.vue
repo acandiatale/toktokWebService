@@ -1,7 +1,7 @@
 <template>
     <div id="Wrap">
         <div id="mainWrap">
-            <b-carousel animated="fade" interval="4000" :indicator="false" :indicator-inside="false" :has-drag="false"
+            <b-carousel :autoplay="false" animated="fade" interval="4000" :indicator="false" :indicator-inside="false" :has-drag="false"
             :pause-hover="false" :pause-info="false" :arrow="false" :arrow-hover="false" id="bgItems">
                 <b-carousel-item v-for="i in 3" :key="i" id="bgItems">
                 <span class="image">
@@ -50,12 +50,12 @@ export default {
 #bgItems{
     position: fixed;
     width: 1800px;
-    left: 0;
+    right: 0;
     top: 0;
     display: block;
     overflow: hidden;
-    margin-left: -300px;
-    height: 88%;
+    /* margin-left: -300px; */
+    height: 100%;
 }
 .inner{
     /* margin: 0; */
@@ -74,12 +74,12 @@ export default {
 @media screen and (max-width: 1020px) {
     .inner{
     /* margin: 0; */
-    position: absolute;
+    /* position: absolute; */
     left: 4%;
     top: 13%;
-    width: 16%;
+    width: 27%;
     /* max-width: 469px; */
-    margin-left: 27%;
+    margin-left: 26%;
 }
 .inner .innerImage{
     margin: 0;
