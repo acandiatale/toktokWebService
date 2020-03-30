@@ -33,6 +33,12 @@
         <router-view></router-view>
     </div>
     <footer v-show="currentPage == -1">
+        <div id="footer_logo">
+        </div>
+        <div id="footer_addr">
+        </div>
+        <div id="footer_sns">
+        </div>
     </footer>
   </div>
 </template>
@@ -230,6 +236,7 @@ footer{
     width: 100%;
     height: 100px;
     background: #272727;
+    vertical-align: middle;
 }
  /* @media screen and (max-width: 1024px){
     #app{
