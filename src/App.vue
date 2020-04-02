@@ -101,15 +101,21 @@ export default {
 </script>
 
 <style>
+html{
+    overflow-y:hidden;
+}
 html, body {
     margin: 0;
     height: 100%;
+    overflow: hidden;
+    overflow-y: hidden;
 }
 #app{
     display: flex;
     flex-direction: row;
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 #header{
     /* position: absolute; */
@@ -196,6 +202,8 @@ html, body {
     /* width: 100%;
     height: 100%; */
     background-color: black;
+    overflow: hidden;
+
 }
 
 #nav_mobile{
