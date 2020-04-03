@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+      
       <header id="header">
         <div id="logo">
             <img id="logo_img" src="./assets/logo.png" @click="getMain">
@@ -18,6 +19,9 @@
                 </li>
             </ul>
         </div>
+        <div id="nav_mobile">
+
+        </div>
     </header>
     <div id="menu">
         <ul>
@@ -26,20 +30,10 @@
             </li>
         </ul>
     </div>
-    <div id="nav_mobile">
 
-    </div>
     <div id="content">
         <router-view></router-view>
     </div>
-    <footer v-show="currentPage == -1">
-        <div id="footer_logo">
-        </div>
-        <div id="footer_addr">
-        </div>
-        <div id="footer_sns">
-        </div>
-    </footer>
   </div>
 </template>
 
@@ -115,7 +109,7 @@ html, body {
     flex-direction: row;
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 #header{
     /* position: absolute; */
@@ -199,11 +193,7 @@ html, body {
 #content{
     display: flex;
     flex: 8;
-    /* width: 100%;
-    height: 100%; */
-    background-color: black;
     overflow: hidden;
-
 }
 
 #nav_mobile{
@@ -228,14 +218,13 @@ html, body {
     margin-left: 0px;
 }
 #menu ul li{
-    margin-left: 20px;
+    margin-left: 23px;
     height: 30px;
     font-size: 10px;
     line-height: 28px;
     color: white;
 }
-/* footer */
-footer{
+/* footer{
     display: table;
     position: fixed;
     bottom: 0;
@@ -245,30 +234,47 @@ footer{
     height: 100px;
     background: #272727;
     vertical-align: middle;
-}
- /* @media screen and (max-width: 1024px){
+} */
+ @media screen and (max-width: 1020px){
     #app{
-        flex-direction: column;
-    }
-    #nav{
         display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        overflow-y: scroll;
+    }
+    #header{
+        /* display: block; */
         flex-direction: row;
-        flex: 2;
+        width: 100%;
+        flex: 1;
+        max-width: 100%;
+        min-width: 100%;
+        height: 80px;
     }
     #logo_img{
-        margin-top: 3%;
-        margin-left: 7%;
+        margin-top: 16px;
+        margin-left: 12px;
+        margin-bottom: 0;
+        width: 140px;
+        height: auto;
+
+    }
+    #content{
+        display: table;
+        width: 100%;
+        height: 100%;
+        min-width: auto;
+        flex: 10;
+    }
+    #menu{
+        display: none;
     }
     #navbar{
         display: none;
     }
-    #nav {
-        display: none;
-    }
-    #content{
-        flex: 16;
-    }
-}  */
+} 
  @font-face { 
     font-family: 'GmarketSansLight'; 
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff'); 
