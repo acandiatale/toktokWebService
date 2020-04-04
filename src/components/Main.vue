@@ -28,39 +28,45 @@
                 </div>
             </div>
             <div id="mboard_content">
-                <div id="con1" class="content1" @click="introduction" @mouseenter="changebtn1(true)" @mouseleave="changebtn1(false)">
-                    <img src="../assets/mbn1_bg.jpg">
-                    <i><img src="../assets/mbn1_icon.png"></i>
-                    <dl>
-                        <dt>톡톡경희한의원 소개</dt>
-                        <dd>ORIENTAL MEDICAL CLINIC</dd>
-                        <dd><span id="view_btn1">view more</span></dd>
-                    </dl>
-                </div>
-                <div id="con2" class="content1" @mouseenter="changebtn2(true)" @mouseleave="changebtn2(false)">
-                    <img src="../assets/mbn2_bg.jpg">
-                    <i><img src="../assets/mbn2_icon.png"></i>
-                    <dl>
-                        <dt>원장님 소개</dt>
-                        <dd>INTRODUCTION</dd>
-                        <dd><span id="view_btn2">view more</span></dd>
-                    </dl>
-                </div>
+                <section id="box1">
+                    <div id="con1" class="content1" @click="introduction" @mouseenter="changebtn1(true)" @mouseleave="changebtn1(false)">
+                        <img src="../assets/mbn1_bg.jpg">
+                        <i><img src="../assets/mbn1_icon.png"></i>
+                        <dl>
+                            <dt>톡톡경희한의원 소개</dt>
+                            <dd>ORIENTAL MEDICAL CLINIC</dd>
+                            <dd><span id="view_btn1">view more</span></dd>
+                        </dl>
+                    </div>
+                    <div id="con2" class="content1" @mouseenter="changebtn2(true)" @mouseleave="changebtn2(false)">
+                        <img src="../assets/mbn2_bg.jpg">
+                        <i><img src="../assets/mbn2_icon.png"></i>
+                        <dl>
+                            <dt>원장님 소개</dt>
+                            <dd>INTRODUCTION</dd>
+                            <dd><span id="view_btn2">view more</span></dd>
+                        </dl>
+                    </div>
+                </section>
                 <section id="content2">
                     <div id="top">
                         <div id="top1" class="top">
-                            <i><img src="../assets/mbn3_icon.png"></i>
-                            <dl>
-                                <dt>진료안내</dt>
-                                <dd>GUIDE</dd>
-                            </dl>
+                            <a class="mbn_con">
+                                <i><img src="../assets/mbn3_icon.png"></i>
+                                <dl>
+                                    <dt>진료안내</dt>
+                                    <dd>GUIDE</dd>
+                                </dl>
+                            </a>
                         </div>
                         <div id="top2" class="top">
-                            <i><img src="../assets/mbn4_icon.png"></i>
-                            <dl>
-                                <dt>오시는길</dt>
-                                <dd>LOCATION</dd>
-                            </dl>
+                            <a class="mbn_con">
+                                <i><img src="../assets/mbn4_icon.png"></i>
+                                <dl>
+                                    <dt>오시는길</dt>
+                                    <dd>LOCATION</dd>
+                                </dl>
+                            </a>
                         </div>
                     </div>
                     <div id="bottom">
@@ -81,6 +87,7 @@
         </section>
         <footer>
             <div id="footer_logo">
+                <p>askdjlfakjsldkf</p>
             </div>
             <div id="footer_addr">
             </div>
@@ -221,6 +228,11 @@ export default {
     /* height: 30%; */
     display: flex;
     flex-direction: row;
+}
+#box1{
+    display: flex;
+    flex-direction: row;
+    flex: 6;
 }
 .content1{
     flex: 3;
@@ -398,6 +410,9 @@ footer{
     background: #272727;
     vertical-align: middle;
 }
+#footer_logo p{
+    height:100px;
+}
 @media screen and (max-width: 1300px){
     #shorcut{
         margin-bottom: -0.8%;
@@ -465,6 +480,9 @@ footer{
         height: 100%;
         width: 100%;
     }
+    #box1{
+        display:contents;
+    }
     #bgItems{
         position: relative;
         width: 100%;
@@ -487,13 +505,88 @@ footer{
     }
     .inner{
         margin-left: 0;
+        position:absolute;
         height: auto;
     }
     footer{
-        position: static;
+        position: relative;
         height: 100px;
         flex: 5;
         display: block;
     }
+  
 }
+@media screen and (max-width: 980px) {
+    /* #shortcut{
+        display:contents;
+    } */
+    #mboard_content{
+        flex-direction: column;
+    }
+    #box1{
+        display: flex;
+        position: relative;
+        flex-direction: row;
+        /* flex-grow: 1; */
+    }
+    a{
+        background-color: transparent;
+    }
+    .mbn_con{
+        /* padding: 10%; */
+        position: absolute;
+        display: block;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+    #mboard_content{
+        height:100%;
+        position: static;
+    }
+    #content2{
+        flex: 12;
+        margin-top: -1.5%;
+        /* flex-grow: 1; */
+    }
+    #top{
+        flex: 2;
+    }
+    #top i{
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        right: 0;
+        width: 15%;
+    }
+    .top {
+        display:block;
+        width: 50%;
+
+    }
+    #bottom dl{
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+    #bottom dl dt{
+        position: relative;
+        display: contents;
+    }
+    #bottom dl dd{
+        margin-top:-1%;
+    }
+    #bottom p{
+        margin-top: 0;
+    }
+    footer{
+        position: relative;
+        height: 100px;
+        flex: 2;
+        display: block;
+        z-index: 999;
+    }
+}
+
 </style>
