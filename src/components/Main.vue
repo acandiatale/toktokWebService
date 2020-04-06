@@ -14,76 +14,68 @@
             </b-carousel>
         </div>
         <section id="shortcut">
-            <div id="mboard">
-                <strong id="board">
-                    <img src="../assets/mbd_tit.jpg">
-                </strong>
-                <ul>
-                    <li>
-                        {{fbw}}
-                    </li>
-                </ul>
-                <div id="more">
-                    <img src="../assets/mbd_more.png">
-                </div>
-            </div>
-            <div id="mboard_content">
-                <section id="box1">
-                    <div id="con1" class="content1" @click="introduction" @mouseenter="changebtn1(true)" @mouseleave="changebtn1(false)">
-                        <img src="../assets/mbn1_bg.jpg">
-                        <i><img src="../assets/mbn1_icon.png"></i>
-                        <dl>
-                            <dt>톡톡경희한의원 소개</dt>
-                            <dd>ORIENTAL MEDICAL CLINIC</dd>
-                            <dd><span id="view_btn1">view more</span></dd>
-                        </dl>
+           <section id="mboard" class="sc_con">
+                <strong id="title_img"><img src="../assets/mbd_tit.jpg"></strong>
+                <strong>{{fbw}}</strong>
+                <img src="../assets/mbd_more.png">
+           </section>
+           <nav id="navi">
+               <section id="top">
+                    <div id="top1" class="sc_con">
+                        <a class="con">
+                            <img src="../assets/mbn1_icon.png">
+                            <ul>
+                            <li>톡톡 경희한의원 소개</li>
+                            <li>ORIENTAL MEDICAL CLINIC</li>
+                            </ul>
+                        </a>
                     </div>
-                    <div id="con2" class="content1" @mouseenter="changebtn2(true)" @mouseleave="changebtn2(false)">
-                        <img src="../assets/mbn2_bg.jpg">
-                        <i><img src="../assets/mbn2_icon.png"></i>
-                        <dl>
-                            <dt>원장님 소개</dt>
-                            <dd>INTRODUCTION</dd>
-                            <dd><span id="view_btn2">view more</span></dd>
-                        </dl>
+                    <div id="top2" class="sc_con">
+                        <a class="con">
+                            <img src="../assets/mbn2_icon.png">
+                            <ul>
+                            <li>원장님 소개</li>
+                            <li>INTRODUCTION</li>
+                            </ul>
+                        </a>
                     </div>
-                </section>
-                <section id="content2">
-                    <div id="top">
-                        <div id="top1" class="top">
-                            <a class="mbn_con">
-                                <i><img src="../assets/mbn3_icon.png"></i>
-                                <dl>
-                                    <dt>진료안내</dt>
-                                    <dd>GUIDE</dd>
-                                </dl>
+               </section>
+                <section id="bottom">
+                    <section id="b_top">
+                        <div id="b_top1" class="sc_con">
+                            <a class="con">
+                                <img src="../assets/mbn3_icon.png">
+                                <ul>
+                                    <li>진료안내</li>
+                                    <li>GUIDE</li>
+                                </ul>
                             </a>
                         </div>
-                        <div id="top2" class="top">
-                            <a class="mbn_con">
-                                <i><img src="../assets/mbn4_icon.png"></i>
-                                <dl>
-                                    <dt>오시는길</dt>
-                                    <dd>LOCATION</dd>
-                                </dl>
+                        <div id="b_top2" class="sc_con">
+                            <a class="con">
+                                <img src="../assets/mbn4_icon.png">
+                                <ul>
+                                    <li>오시는길</li>
+                                    <li>LOCATION</li>
+                                </ul>
                             </a>
                         </div>
-                    </div>
-                    <div id="bottom">
-                        <dl>
-                            <dt>CUSTOMER CENTER</dt>
-                            <dd>031.767.0075</dd>
-                        <p>
-                            <span>진료시간</span>
-                            <br>
-                            "평일 : AM9시 - PM8시 I 토요일 : AM9시 - PM2시"
-                            <br>
-                            "공휴일 : AM9시 - PM1시(추석, 설, 신정 연휴만 휴무)"
-                        </p>
-                        </dl>
+                    </section>
+                    <div id="b_bottom" class="sc_con">
+                        <a class="con">
+                        <ul>
+                            <li>CUSTOMER CENTER</li>
+                            <li>031.767.0075</li>
+                            <li>진료시간</li>
+                            <p>
+                                평일 : AM9시 - PM8시 I 토요일 : AM9시 - PM2시
+                                공휴일 : AM9시 - PM1시(추석, 설, 신정 연휴만 휴무)
+                            </p>
+                        </ul>
+                        </a>
                     </div>
                 </section>
-            </div>
+           </nav>
         </section>
         <footer>
             <div id="footer_logo">
@@ -128,22 +120,22 @@ export default {
 }
 </script>
 <style scoped>
-#Wrap{
+#wrap{
     z-index: 3;
-    position: absolute;
+    position: relative;
     top:0;
     right:0;
     width: 100%;
-    height: 100%;
+    height: auto;
     /* display: block; */
     /* overflow: hidden; */
 }
 #mainWrap{
     z-index: -1;
-    position: absolute;
+    position: relative;
     top:0;
     right:0;
-    height: 100%;
+    height: auto;
     width: 100%; 
 }
 #bgItems{
@@ -171,233 +163,65 @@ export default {
     height: auto;
 }
 #shortcut{
-    position: absolute;
-    background-color: white;
-    right: 0;
-    bottom:100px;
-    width: 60%;
-    max-width:780px;
-    max-height: 282px;
-    /* max-height: 280px;
-    height: 100%; */
-    margin-bottom: -0.8%;
-    display: flex;
+    background: white;
+    max-width: 780px;
+    width: 65%;
+    max-height: 282;
+    position:relative;
+    /* left: 0; */
+    /* bottom: 100px; */
+}
+#shortcut ul li, #shortcut p{
+    font-size: 12px;
+}
+#navi{
+    display:flex;
+}
+#top{
+    display:flex;
+    flex-direction: row;
+    flex:6;
+}
+#bottom{
+    display:flex;
     flex-direction: column;
+    flex:4;
+}
+#b_top{
+    flex: 1;
+    display:flex;
+    flex-direction: row;
+}
+#b_bottom{
+    flex:1;
 }
 #mboard{
-    display: flex;
-    flex-direction: row;
+    position: relative;
     width: 100%;
     height: 48px;
 }
-#mboard ul{
-    background-color: white;
-    float: left;
-    width: 70%;
-    line-height: 48px;
-    padding: 0;
-}
-#mboard ul li{
-    padding-left: 20px;
-}
-#board{
-    display: block;
-    float: left;
-    width: 54px;
-    height: 100%;
-}
-#more{
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 48px;
-    height: 48px;;
-}
-#more img{
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    margin: auto;
-    width: 22px;
-    height: 22px;
-}
-#mboard_content{
-    width: 100%;
-    /* height: 30%; */
-    display: flex;
-    flex-direction: row;
-}
-#box1{
-    display: flex;
-    flex-direction: row;
-    flex: 6;
-}
-.content1{
-    flex: 3;
-    cursor: pointer;
+#top1, #top2, #b_top1, #b_top2, #bottom{
     position: relative;
-    
-}
-.content1 img{
-    height: auto;
-}
-#con1 i{
-    position: absolute;
-    width: 15%;
-    top: 35%;
-    left: 10%;
-}
-#con1 i img{
-    width: 100%;
-    height: auto;
-}
-dl{
-    margin: 0;
-    padding: 0;
-    border: 0;
-    position: absolute;
-    top: 50%;
-    left: 10%;
-}
-dl dt{
-    font-size: 20px;
-    font-weight: 500;
-    color: #fff;
-    margin-bottom: -2%;
-}
-dl dd{
-    font-size: 13px;
-    font-weight: 400;
-    color: #fff;
-}
-#con2 i{
-    position: absolute;
-    width: 15%;
-    top: 35%;
-    left: 10%;
-}
-#con2 i img{
-    width: 100%;
-    height: auto;
-}
-#con2 dl dt{
-    font-size: 20px;
-    font-weight: 500;
-    color: #fff;
-    margin-bottom: -4%;
-}
-#view_btn1{
-    display: inline-block;
-    padding: 2px 18px;
-    border: none;
-    background: #222;
-    border-radius: 20px;
-    margin-top: 10px;
-    color: #fff;
-    font-size: 8px;
-    font-weight: 300;
-    transition: 1s;
-}
-#view_btn2{
-    display: inline-block;
-    padding: 2px 18px;
-    border: none;
-    background: #222;
-    border-radius: 20px;
-    margin-top: 10px;
-    color: #fff;
-    font-size: 8px;
-    font-weight: 300;
-    transition: 1s;
-}
-#content2{
-    flex:4;
-    display: flex;
-    flex-direction: column;
-}
-#top{
-    position:relative;
-    display: flex;
-    flex-direction: row;
-    flex: 1;
-}
-#top dl{
-    top:10%
-}
-#top dl dt{
-    font-size: 15px;
-}
-#top i{
-    position: absolute;
-    width: 20%;
-    bottom: 10%;
-    right: 10%;
-}
-#top img{
-    width: 100%;
-    height: auto;
 }
 #top1{
-    position:relative;
-    background-color: #ff6400;
+    background: url("../assets/mbn1_bg.jpg");
     background-size: cover;
-    display: flex;
-    /* height: 100%; */
-    width: 15%;
-    flex:1;   
+    flex:3;
 }
 #top2{
-    position:relative;
-    background-color: #424242;
+    background: url("../assets/mbn2_bg.jpg");
     background-size: cover;
-    display: flex;    
-    /* height: 100%; */
-    flex:1
+    flex:3;
 }
-#top2 dl dt{
-    margin-bottom: -4%;
-}
-
-#bottom{
-    background-color: white;
+#b_top1{
+    background: #ff6400;
     background-size: cover;
-    /* height: 100%; */
-    flex: 1;
-    position: relative;
-    align-content: center;
-    text-align: center;
-    margin:0;
-    padding: 0;
+    flex:1;
 }
-#bottom dl{
-    top: 2%;
-    left: 4%;
-    /* padding: 10%; */
-    align-content: center;
-}
-#bottom dl dt{
-    font-size: 11px;
-    color:black;
-    font-weight: 400;
-}
-#bottom dl dd{
-    margin-top: -3%;
-    font-size: 21px;
-    color: #ff6400;
-    font-weight: 800;
-}
-#bottom p{
-    color: #888888;
-    font-size: 12px;
-    font-weight: 500;
-    margin-top: -2%;
-}
-#bottom span{
-    font-weight: 500;
-    font-size: 13px;
-    color: black;
+#b_top2{
+    flex:1;
+    background: #424242;
+    background-size: cover;
 }
 footer{
     display: table;
@@ -414,56 +238,10 @@ footer{
     height:100px;
 }
 @media screen and (max-width: 1300px){
-    #shorcut{
-        margin-bottom: -0.8%;
-    }
-    #bottom dl{
-        top: 8%;
-        left: 6%;
-    }
-    #bottom dl dt{
-        font-size: 10px;
-    }
-    #bottom dl dd{
-        margin-top: -3%;
-        font-size: 19px;
-    }
-    #bottom p{
-        font-size: 11px;
-        margin-top: -2%;
-    }
-    #bottom span{
-        font-weight: 500;
-        font-size: 12px;
-    }
+   
 }
 @media screen and (max-width: 1170px){
-    /* #top{
-        flex:1
-    }
-    #bottom{
-        flex: 1.3;
-    } */
-    dl{
-        top: 53%;
-    }
-    dl dt{
-        font-size: 15px;
-        font-weight: 500;
-        color: #fff;
-        margin-bottom: -2%;
-    }
-    dl dd{
-        font-size: 10px;
-        font-weight: 400;
-        color: #fff;
-    }
-    #con2 dl dt{
-        font-size: 15px;
-        font-weight: 500;
-        color: #fff;
-        margin-bottom: -4%;
-    }
+    
 }
 
 @media screen and (max-width: 1020px) {
@@ -480,9 +258,6 @@ footer{
         height: 100%;
         width: 100%;
     }
-    #box1{
-        display:contents;
-    }
     #bgItems{
         position: relative;
         width: 100%;
@@ -490,18 +265,6 @@ footer{
         overflow: hidden;
         margin-left:0;
         height: 100%;
-    }
-    #shortcut{
-        position: relative;
-        background-color: white;
-        z-index: 1;
-        width: 100%;
-        max-width: 100%;
-        max-height: 100%;
-        top:0;
-        left:0;
-        display: flex;
-        flex: 12;
     }
     .inner{
         margin-left: 0;
@@ -514,72 +277,11 @@ footer{
         flex: 5;
         display: block;
     }
-  
 }
 @media screen and (max-width: 980px) {
-    /* #shortcut{
-        display:contents;
-    } */
-    #mboard_content{
-        flex-direction: column;
-    }
-    #box1{
-        display: flex;
-        position: relative;
-        flex-direction: row;
-        /* flex-grow: 1; */
-    }
-    a{
-        background-color: transparent;
-    }
-    .mbn_con{
-        /* padding: 10%; */
-        position: absolute;
-        display: block;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-    }
-    #mboard_content{
-        height:100%;
-        position: static;
-    }
-    #content2{
-        flex: 12;
-        margin-top: -1.5%;
-        /* flex-grow: 1; */
-    }
-    #top{
-        flex: 2;
-    }
-    #top i{
-        position: absolute;
-        width: 100%;
-        bottom: 0;
-        right: 0;
-        width: 15%;
-    }
-    .top {
-        display:block;
-        width: 50%;
+    #wrap{height: auto;}
+    #mainWrap{height: auto;}
 
-    }
-    #bottom dl{
-        position: relative;
-        top: 0;
-        left: 0;
-    }
-    #bottom dl dt{
-        position: relative;
-        display: contents;
-    }
-    #bottom dl dd{
-        margin-top:-1%;
-    }
-    #bottom p{
-        margin-top: 0;
-    }
     footer{
         position: relative;
         height: 100px;

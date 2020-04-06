@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-      
       <header id="header">
         <div id="logo">
             <img id="logo_img" src="./assets/logo.png" @click="getMain">
@@ -95,21 +94,15 @@ export default {
 </script>
 
 <style>
-html{
-    overflow-y:hidden;
-}
 html, body {
-    margin: 0;
-    height: 100%;
-    overflow: hidden;
-    overflow-y: hidden;
+    margin: 0;  
+    height: 100%;      
 }
 #app{
     display: flex;
     flex-direction: row;
     width: 100%;
     height: 100%;
-    /* overflow: hidden; */
 }
 #header{
     /* position: absolute; */
@@ -240,9 +233,7 @@ html, body {
         display: flex;
         flex-direction: column;
         width: 100%;
-        height: 100%;
-        overflow: auto;
-        overflow-y: scroll;
+        height: auto;
     }
     #header{
         /* display: block; */
@@ -264,8 +255,8 @@ html, body {
     #content{
         display: table;
         width: 100%;
-        height: 100%;
-        min-width: auto;
+        height: auto;
+        /* min-width: auto; */
         flex: 10;
     }
     #menu{
@@ -273,6 +264,9 @@ html, body {
     }
     #navbar{
         display: none;
+    }
+    #content{
+        height: auto;
     }
 } 
  @font-face { 
