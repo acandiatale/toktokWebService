@@ -131,10 +131,10 @@ export default {
     /* overflow: hidden; */
 }
 #mainWrap{
-    z-index: -1;
+    z-index: 0;
     position: relative;
-    top:0;
-    right:0;
+    /* top:0;
+    right:0; */
     height: auto;
     width: 100%; 
 }
@@ -176,6 +176,14 @@ export default {
 }
 #navi{
     display:flex;
+}
+#navi a img{
+    width: 25%;
+}
+#navi a{
+    display: block;
+    width:100%;
+    padding: 10%;
 }
 #top{
     display:flex;
