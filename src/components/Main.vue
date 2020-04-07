@@ -97,7 +97,7 @@ export default {
         return{
             fbw: "갑작스런 목통증 해결방법",
             imageUrls: [],
-            position: 2,
+            position: 0,
         }
     },
     methods: {
@@ -111,7 +111,7 @@ export default {
                 console.log("interval" + this.position);
             }
             let url = this.imageUrls[this.position];
-            document.getElementById("image").style.background = 'url(' + require(`../assets/${url}`) + ')';
+            document.getElementById("image").style.background = 'no-repeat url(' + require(`../assets/${url}`) + ')';
         },
         introduction: function() {
             this.$router.push('/introduction');
@@ -172,7 +172,8 @@ export default {
     height: auto;
 }
 #image{
-    background: url("../assets/mvis_img03.jpg");
+    background: url("../assets/mvis_img01.jpg");
+    background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
     transition: 1s;
