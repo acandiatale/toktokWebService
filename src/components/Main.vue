@@ -89,15 +89,26 @@
     </div>
 </template>
 <script>
+import { setInterval } from 'timers';
 export default {
     data(){
         return{
             fbw: "갑작스런 목통증 해결방법",
+            imageUrls: [],
+            position: 2,
         }
     },
     methods: {
         getImgUrl: function(value){
             return require(`../assets/mvis_img0${value}.jpg`);
+        },
+        imageUrl: function(){
+            this.position += 1;
+            if(this.position === 3){
+                this.position = 0;
+                console.log("interval");
+            }
+            document.getElementById("image").style.backgroundImage = "url(" + this.imageUrls[this.position] + ")";
         },
         introduction: function() {
             this.$router.push('/introduction');
@@ -115,8 +126,15 @@ export default {
             }else{
                 document.getElementById("view_btn2").style.background = "#222";
             }
-        }
+        },
+        intervalImage: function() {
+            setInterval(this.imageUrl(), 4000);
+        },
     },
+    mounted: function(){
+        this.imageUrls = ["../assets/mvis_img01.jpg", "../assets/mvis_img02.jpg", "../assets/mvis_img03.jpg"];
+        this.intervalImage();
+    }
 }
 </script>
 <style scoped>
@@ -135,7 +153,7 @@ export default {
     position: relative;
     /* top:0;
     right:0; */
-    height: auto;
+    height: 100%;
     width: 100%; 
 }
 #bgItems{
@@ -146,7 +164,11 @@ export default {
     display: block;
     overflow: hidden;
     /* margin-left: -300px; */
-    height: 100%;
+    height: auto;
+}
+.image{
+    background: url("../assets/mvis_img03.jpg");
+    background-size: cover;
 }
 .inner{
     /* margin: 0; */
@@ -167,9 +189,9 @@ export default {
     max-width: 780px;
     width: 65%;
     max-height: 282;
-    position:relative;
-    /* left: 0; */
-    /* bottom: 100px; */
+    position:absolute;
+    right: 0;
+    bottom: 100px;
 }
 #shortcut ul li, #shortcut p{
     font-size: 12px;
@@ -233,7 +255,7 @@ export default {
 }
 footer{
     display: table;
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 0;
     z-index: 999;
