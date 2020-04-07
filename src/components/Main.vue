@@ -1,7 +1,9 @@
 <template>
     <div id="wrap">
         <div id="mainWrap">
-            <b-carousel :autoplay="false" animated="fade" interval="4000" :indicator="false" :indicator-inside="false" :has-drag="false"
+            <div id="image">
+            </div>
+            <!-- <b-carousel :autoplay="false" animated="fade" interval="4000" :indicator="false" :indicator-inside="false" :has-drag="false"
             :pause-hover="false" :pause-info="false" :arrow="false" :arrow-hover="false" id="bgItems">
                 <b-carousel-item v-for="i in 3" :key="i" id="bgItems">
                 <span class="image">
@@ -11,7 +13,7 @@
                     <img src="../assets/mvis_txt.png" id="innerImage">
                 </div>
             </b-carousel-item>
-            </b-carousel>
+            </b-carousel> -->
         </div>
         <section id="shortcut">
            <section id="mboard" class="sc_con">
@@ -103,12 +105,13 @@ export default {
             return require(`../assets/mvis_img0${value}.jpg`);
         },
         imageUrl: function(){
-            this.position += 1;
+            this.position = this.position + 1;
             if(this.position === 3){
                 this.position = 0;
-                console.log("interval");
+                console.log("interval" + this.position);
             }
-            document.getElementById("image").style.backgroundImage = "url(" + this.imageUrls[this.position] + ")";
+            let url = this.imageUrls[this.position];
+            document.getElementById("image").style.background = 'url(' + require(`../assets/${url}`) + ')';
         },
         introduction: function() {
             this.$router.push('/introduction');
@@ -127,13 +130,15 @@ export default {
                 document.getElementById("view_btn2").style.background = "#222";
             }
         },
-        intervalImage: function() {
-            setInterval(this.imageUrl(), 4000);
-        },
+       
     },
-    mounted: function(){
-        this.imageUrls = ["../assets/mvis_img01.jpg", "../assets/mvis_img02.jpg", "../assets/mvis_img03.jpg"];
-        this.intervalImage();
+    mounted: function () {
+        this.$nextTick(function () {
+            this.imageUrls = ["mvis_img01.jpg", "mvis_img02.jpg", "mvis_img03.jpg"];
+            setInterval(() => {
+                this.imageUrl()
+            }, 4000);
+        })
     }
 }
 </script>
@@ -166,9 +171,11 @@ export default {
     /* margin-left: -300px; */
     height: auto;
 }
-.image{
+#image{
     background: url("../assets/mvis_img03.jpg");
     background-size: cover;
+    height: 100%;
+    transition: 1s;
 }
 .inner{
     /* margin: 0; */
