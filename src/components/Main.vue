@@ -1,7 +1,7 @@
 <template>
     <div id="wrap">
         <div id="mainWrap">
-            <div id="image">
+            <div id="image" class="imgclass">
             </div>
             <!-- <b-carousel :autoplay="false" animated="fade" interval="4000" :indicator="false" :indicator-inside="false" :has-drag="false"
             :pause-hover="false" :pause-info="false" :arrow="false" :arrow-hover="false" id="bgItems">
@@ -110,8 +110,7 @@ export default {
                 this.position = 0;
                 console.log("interval" + this.position);
             }
-            let url = this.imageUrls[this.position];
-            document.getElementById("image").style.background = 'no-repeat url(' + require(`../assets/${url}`) + ')';
+            document.getElementById("image").className =  "imgclass"+ this.position;
         },
         introduction: function() {
             this.$router.push('/introduction');
@@ -134,7 +133,6 @@ export default {
     },
     mounted: function () {
         this.$nextTick(function () {
-            this.imageUrls = ["mvis_img01.jpg", "mvis_img02.jpg", "mvis_img03.jpg"];
             setInterval(() => {
                 this.imageUrl()
             }, 4000);
@@ -172,11 +170,19 @@ export default {
     height: auto;
 }
 #image{
-    background: url("../assets/mvis_img01.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
     transition: 1s;
+}
+.imgclass0{
+    background-image: url("../assets/mvis_img01.jpg");
+}
+.imgclass1{
+    background-image: url("../assets/mvis_img02.jpg");
+}
+.imgclass2{
+    background-image: url("../assets/mvis_img03.jpg");
 }
 .inner{
     /* margin: 0; */
