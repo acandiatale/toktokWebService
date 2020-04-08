@@ -33,6 +33,15 @@
     <div id="content">
         <router-view></router-view>
     </div>
+    <footer>
+        <div id="footer_logo">
+            <p>askdjlfakjsldkf</p>
+        </div>
+        <div id="footer_addr">
+        </div>
+        <div id="footer_sns">
+        </div>
+    </footer>
   </div>
 </template>
 
@@ -102,12 +111,12 @@ html, body {
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 969px;
+    height: 100%;
 }
 #header{
     /* position: absolute; */
     background-color: white;
-    z-index: 998;
+    z-index: 990;
     display: flex;
     flex: 2;
     flex-direction: column;
@@ -217,9 +226,9 @@ html, body {
     line-height: 28px;
     color: white;
 }
-/* footer{
+  footer{
     display: table;
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 0;
     z-index: 999;
@@ -227,7 +236,10 @@ html, body {
     height: 100px;
     background: #272727;
     vertical-align: middle;
-} */
+}
+    #footer_logo p{
+        height:100px;
+    }
  @media screen and (max-width: 1020px){
     #app{
         display: flex;
@@ -268,6 +280,7 @@ html, body {
     #content{
         height: auto;
     }
+  
 } 
  @font-face { 
     font-family: 'GmarketSansLight'; 

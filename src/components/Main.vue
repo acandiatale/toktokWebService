@@ -1,24 +1,13 @@
 <template>
     <div id="wrap">
         <div id="mainWrap">
-            <div id="image" class="imgclass">
+            <div id="image" class="imgclass0">
             </div>
-            <!-- <b-carousel :autoplay="false" animated="fade" interval="4000" :indicator="false" :indicator-inside="false" :has-drag="false"
-            :pause-hover="false" :pause-info="false" :arrow="false" :arrow-hover="false" id="bgItems">
-                <b-carousel-item v-for="i in 3" :key="i" id="bgItems">
-                <span class="image">
-                <img :src="getImgUrl(i)" id="bgItem">
-                </span>
-                <div class="inner">
-                    <img src="../assets/mvis_txt.png" id="innerImage">
-                </div>
-            </b-carousel-item>
-            </b-carousel> -->
         </div>
         <section id="shortcut">
            <section id="mboard" class="sc_con">
                 <strong id="title_img"><img src="../assets/mbd_tit.jpg"></strong>
-                <strong>{{fbw}}</strong>
+                <a>{{fbw}}</a>
                 <img src="../assets/mbd_more.png">
            </section>
            <nav id="navi">
@@ -69,10 +58,10 @@
                             <li>CUSTOMER CENTER</li>
                             <li>031.767.0075</li>
                             <li>진료시간</li>
-                            <p>
+                            <!-- <p>
                                 평일 : AM9시 - PM8시 I 토요일 : AM9시 - PM2시
                                 공휴일 : AM9시 - PM1시(추석, 설, 신정 연휴만 휴무)
-                            </p>
+                            </p> -->
                         </ul>
                         </a>
                     </div>
@@ -97,7 +86,7 @@ export default {
         return{
             fbw: "갑작스런 목통증 해결방법",
             imageUrls: [],
-            position: 0,
+            position: -1,
         }
     },
     methods: {
@@ -133,6 +122,7 @@ export default {
     },
     mounted: function () {
         this.$nextTick(function () {
+            
             setInterval(() => {
                 this.imageUrl()
             }, 4000);
@@ -147,7 +137,7 @@ export default {
     top:0;
     right:0;
     width: 100%;
-    height: auto;
+    height: 100%;
     /* display: block; */
     /* overflow: hidden; */
 }
@@ -172,8 +162,11 @@ export default {
 #image{
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100%;
     transition: 1s;
+    position: absolute;
+    width: 120%;
+    height: 100%;
+    right: 0;
 }
 .imgclass0{
     background-image: url("../assets/mvis_img01.jpg");
@@ -201,7 +194,7 @@ export default {
 #shortcut{
     background: white;
     max-width: 780px;
-    width: 65%;
+    width: 70%;
     max-height: 282;
     position:absolute;
     right: 0;
@@ -268,15 +261,15 @@ export default {
     background-size: cover;
 }
 footer{
-    display: table;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 999;
-    width: 100%;
-    height: 100px;
-    background: #272727;
-    vertical-align: middle;
+display: table;
+position: absolute;
+bottom: 0;
+left: 0;
+z-index: 999;
+width: 100%;
+height: 100px;
+background: #272727;
+vertical-align: middle;
 }
 #footer_logo p{
     height:100px;
@@ -289,7 +282,7 @@ footer{
 }
 
 @media screen and (max-width: 1020px) {
-    #wrap{
+    /* #wrap{
         display: flex;
         flex-direction: column;
         height: 100%;
@@ -320,19 +313,10 @@ footer{
         height: 100px;
         flex: 5;
         display: block;
-    }
+    } */
 }
 @media screen and (max-width: 980px) {
-    #wrap{height: auto;}
-    #mainWrap{height: auto;}
-
-    footer{
-        position: relative;
-        height: 100px;
-        flex: 2;
-        display: block;
-        z-index: 999;
-    }
+    
 }
 
 </style>
