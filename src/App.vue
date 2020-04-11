@@ -11,8 +11,7 @@
                     <router-link :to="item.router" class="itemRouter">{{item.text}}</router-link>
                     <ul id="subList" v-show="currentId == item.id">
                         <li class="li_sub" v-for="content in item.content" :key="content.text">
-                            <!-- <router-link :to="content.router" class="subItemRouter">{{content.text}}</router-link> -->
-                            {{content.text}}
+                            <router-link :to="content.router" class="subItemRouter">{{content.text}}</router-link>
                         </li>
                     </ul>
                 </li>
@@ -35,9 +34,11 @@
     </div>
     <footer>
         <div id="footer_logo">
-            <p>askdjlfakjsldkf</p>
+            <img id="ft_logoimg" src="./assets/ft_logo.png">
         </div>
         <div id="footer_addr">
+            <p>톡톡경희한의원 | 경기도 광주시 파발로 187 세양빌딩 202호 대표자: 이기홍 | TEL: 031-767-0075</p>
+            <p>Copyright © 2019 톡톡경희한의원. All rights reserved.</p>
         </div>
         <div id="footer_sns">
         </div>
@@ -55,15 +56,18 @@ export default {
                 content: [{text: "인사말", router: "/introduction"}, {text: "원장님소개", router: "/introduction02"}, {text: "병원갤러리", router: "/introduction03"},
                 {text: "진료안내", router: "/introduction04"}, {text: "오시는길", router: "/introduction05"}]},
             {id: 1, text: "기본진료", router: "/care",
-                content: [{text: "침"}, {text: "약"}, {text: "부항"}, {text: "다이어트한약"}, {text: "교통사고"}]},
+                content: [{text: "침", router: "/care"}, {text: "약", router: "/care1"}, {text: "부항", router: "/care2"}, {text: "다이어트한약", router: "/care3"},
+                {text: "교통사고", router: "/care4"}]},
             {id: 2, text: "공간척추교정", router: "/chuna", 
-                content: [{text: "공간척추교정법이란"}, {text: "특징 및 장점"}, {text: "구성"}, {text: "안정성"}, {text: "치료도구"}, {text: "특효질환"}]},
+                content: [{text: "공간척추교정법이란", router: "/chuna"}, {text: "특징 및 장점", router: "/chuna1"}, {text: "구성", router: "/chuna2"},
+                {text: "안정성", router: "/chuna3"}, {text: "치료도구", router: "/chuna4"}, {text: "특효질환", router: "/chuna5"}]},
             {id: 3, text: "턱관절교정", router: "/jaw", 
-                content:[{text: "FCST원리소개"}, {text: "FCST관련질환"}, {text: "턱관절의 중요성1"}, {text: "턱관절의 중요성2"}, {text: "FCST 10가지 균형요법"}]},
+                content:[{text: "FCST원리소개", router: "/jaw"}, {text: "FCST관련질환", router: "/jaw1"}, {text: "턱관절의 중요성1", router: "/jaw2"},
+                {text: "턱관절의 중요성2", router: "/jaw3"}, {text: "FCST 10가지 균형요법", router: "/jaw4"}]},
             {id: 4, text: "치료이야기", router: "/story", 
-                content: [{text: "치료이야기"}]},
+                content: [{text: "치료이야기", router: "/story"}]},
             {id: 5, text: "고객센터", router: "/center",
-                content: [{text: "공지사항"}]}
+                content: [{text: "공지사항", router: "/center"}]}
         ],
         menu: [
             {text: "HOME", router: "/main"},
@@ -160,21 +164,26 @@ html, body {
     background: rgba(0,0,0,0.8);
     font-size: 17px;
     position: relative;
-    width: 150px;
+    width: 200px;
     height: auto;
     display: block;
     z-index: 1;
     margin-top: -18%;
     padding: 5%;
-    left: 60%;
+    left: 55%;
+}
+@media screen and (max-width: 1350px){
+    #subList{
+        left: 60%;
+    }
 }
 .li_sub{
     list-style: "·";
     margin-bottom: 2px;
     padding-left: 5%;
     color: grey;
-    font-weight: 50;
-    font-size: 15px;
+    font-weight: 600;
+    font-size: 16px;
 }
 .itemRouter{
     font-family: GmarketSansLight, sans-serif;
@@ -183,14 +192,17 @@ html, body {
 .itemRouter:hover{
     margin-bottom: 5%;
     font-weight: bold;
-    color: darksalmon
+    color: #ee6f20;
+}
+.itemRouter:hover:not(:first-child){
+    margin-top:10%;
 }
 .subItemRouter{
     color: grey;
 }
 .subItemRouter:hover{
     font-weight: bold;
-    color: darksalmon
+    color: #ee6f20;
 }
 #content{
     display: flex;
@@ -226,7 +238,7 @@ html, body {
     line-height: 28px;
     color: white;
 }
-  footer{
+footer{
     display: table;
     position: absolute;
     bottom: 0;
@@ -237,9 +249,35 @@ html, body {
     background: #272727;
     vertical-align: middle;
 }
-    #footer_logo p{
-        height:100px;
-    }
+#footer_logo{
+    width: 280px;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    position: absolute;
+    top: 22px;
+}
+#ft_logoimg{
+    vertical-align: middle;
+}
+#footer_addr{
+    width: 55%;
+    position: absolute;
+    left: 290px;
+    top: 34px;
+    text-align: left;
+    vertical-align: middle;
+    display: inline-block;
+}
+#footer_addr p{
+    color:#aaa;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 1.42857143;
+}
+#footer_sns{
+    display: inline-block;
+}
  @media screen and (max-width: 1020px){
     #app{
         display: flex;

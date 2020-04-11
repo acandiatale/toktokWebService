@@ -72,7 +72,7 @@
                 </section>
            </nav>
         </section>
-        <footer>
+        <!-- <footer>
             <div id="footer_logo">
                 <p>askdjlfakjsldkf</p>
             </div>
@@ -80,7 +80,7 @@
             </div>
             <div id="footer_sns">
             </div>
-        </footer>
+        </footer> -->
     </div>
 </template>
 <script>
