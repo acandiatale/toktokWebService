@@ -324,8 +324,12 @@ footer{
         display: none;
     }
     #footer_addr{
+        width: 100%;
         display: block;
         position: relative;
+        top: 20px;
+        left: 0;
+        text-align: center;
     }
   
 } 

@@ -387,7 +387,8 @@ export default {
         max-width: unset;
         width: 100%;
         display: block;
-        position:relative
+        position:relative;
+        bottom: unset;
     }
     
 }
