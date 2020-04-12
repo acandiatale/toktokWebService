@@ -278,18 +278,18 @@ footer{
 #footer_sns{
     display: inline-block;
 }
- @media screen and (max-width: 1020px){
+ @media screen and (max-width: 1024px){
     #app{
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        height: auto;
+        display: block;
+
     }
     #header{
-        /* display: block; */
-        flex-direction: row;
+        position: fixed;
+        top: 0;
+        left: 0;
+        /* flex-direction: row; */
         width: 100%;
-        flex: 1;
+        /* flex: 1; */
         max-width: 100%;
         min-width: 100%;
         height: 80px;
@@ -303,11 +303,12 @@ footer{
 
     }
     #content{
-        display: table;
+        position: static;
+        display: block;
         width: 100%;
-        height: auto;
-        /* min-width: auto; */
-        flex: 10;
+        height: 100%;
+        /* flex: 10; */
+        margin-top: 80px;
     }
     #menu{
         display: none;
@@ -315,8 +316,16 @@ footer{
     #navbar{
         display: none;
     }
-    #content{
-        height: auto;
+    footer{
+        position: static;
+
+    }
+    #ft_logoimg{
+        display: none;
+    }
+    #footer_addr{
+        display: block;
+        position: relative;
     }
   
 } 

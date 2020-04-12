@@ -72,15 +72,6 @@
                 </section>
            </nav>
         </section>
-        <!-- <footer>
-            <div id="footer_logo">
-                <p>askdjlfakjsldkf</p>
-            </div>
-            <div id="footer_addr">
-            </div>
-            <div id="footer_sns">
-            </div>
-        </footer> -->
     </div>
 </template>
 <script>
@@ -369,34 +360,35 @@ export default {
     background: #424242;
     background-size: cover;
 }
-footer{
-display: table;
-position: absolute;
-bottom: 0;
-left: 0;
-z-index: 999;
-width: 100%;
-height: 100px;
-background: #272727;
-vertical-align: middle;
-}
-#footer_logo p{
-    height:100px;
-}
+
 @media screen and (max-width: 1240px){
-#top1 a ul li, #top2 a ul li{
-    font-size: 12px !important;
+    #top1 a ul li, #top2 a ul li{
+        font-size: 12px !important;
+    }
+    #b_ul p[data-v-54d3a52e] {
+        font-size: 12px !important;
+        color: #000 !important;
+        font-weight: 200 !important;
+    }
+    #time{
+        font-size: 11px;
+    }
 }
-#b_ul p[data-v-54d3a52e] {
-    font-size: 12px !important;
-    color: #000 !important;
-    font-weight: 200 !important;
-}
-#time{
-    font-size: 11px;
-}
-}
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 1024px) {
+    #wrap{
+        display:flex;
+        flex-direction: column;
+    }
+    #mainWrap{
+        display:block;
+        position:relative;
+    }
+    #shortcut{
+        max-width: unset;
+        width: 100%;
+        display: block;
+        position:relative
+    }
     
 }
  @font-face { 
