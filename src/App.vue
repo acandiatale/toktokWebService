@@ -10,7 +10,7 @@
                 <li @mouseenter="getSubList(item.id)" @mouseleave="outSubList()" @click="changePage" id="li_main" v-for="item in items" :key="item.id">
                     <router-link :to="item.router" class="itemRouter">{{item.text}}</router-link>
                     <ul id="subList" v-show="currentId == item.id">
-                        <li class="li_sub" v-for="content in item.content" :key="content.text">
+                        <li class="li_sub" @click="changePage" v-for="content in item.content" :key="content.text">
                             <router-link :to="content.router" class="subItemRouter">{{content.text}}</router-link>
                         </li>
                     </ul>
@@ -28,11 +28,10 @@
             </li>
         </ul>
     </div>
-
     <div id="content">
         <router-view></router-view>
     </div>
-    <footer>
+    <footer id="footer">
         <div id="footer_logo">
             <img id="ft_logoimg" src="./assets/ft_logo.png">
         </div>
@@ -77,6 +76,7 @@ export default {
         ],
         currentId: -1,
         currentPage: -1,
+        ismain: true,
       }
   },
   methods: {
@@ -102,14 +102,18 @@ export default {
   mounted(){
       this.$router.push("/main");
       console.log("currentPage:" + this.currentPage);
+      if(this.currentPage === 0){
+          document.getElementById("footer").style.display = "none";
+      } else{
+          document.getElementById("footer").style.display = "block";
+      }
   },
 }
 </script>
 
 <style>
-html, body {
-    margin: 0;  
-    height: 100%;      
+body{
+    height: 100%;
 }
 #app{
     display: flex;
@@ -306,7 +310,7 @@ footer{
         position: static;
         display: block;
         width: 100%;
-        height: 100%;
+        height: unset;
         /* flex: 10; */
         margin-top: 80px;
     }
@@ -332,8 +336,17 @@ footer{
         text-align: center;
     }
   
-} 
- @font-face { 
+}
+@media screen and (max-width: 640px){
+    #image{
+        background-size: contain;
+    }
+    #app{
+        height: unset;
+    }
+}
+
+@font-face { 
     font-family: 'GmarketSansLight'; 
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff'); 
     font-weight: normal; 

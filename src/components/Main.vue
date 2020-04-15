@@ -2,10 +2,11 @@
     <div id="wrap">
         <div id="mainWrap">
             <div id="image" class="imgclass0">
+                <div id="hoverimg">
+                </div>
             </div>
         </div>
-        <div id="hoverimg">
-        </div>
+        
         <section id="shortcut">
            <section id="mboard" class="sc_con">
                 <strong id="title_img"><img src="../assets/mbd_tit.jpg"></strong>
@@ -41,7 +42,7 @@
                             <a class="con">
                                 <ul>
                                     <li class="b_li_top">진료안내</li>
-                                    <li>GUIDE</li>
+                                    <li id="b_li_bottom1">GUIDE</li>
                                 </ul>
                                 <img class="b_top_img" src="../assets/mbn3_icon.png">
                             </a>
@@ -50,7 +51,7 @@
                             <a class="con">
                                 <ul>
                                     <li class="b_li_top">오시는길</li>
-                                    <li>LOCATION</li>
+                                    <li id="b_li_bottom2">LOCATION</li>
                                 </ul>
                                 <img class="b_top_img" src="../assets/mbn4_icon.png">
                             </a>
@@ -120,7 +121,7 @@ export default {
     mounted: function () {
         this.$nextTick(function () {
             setInterval(() => {
-                this.imageUrl()
+                this.imageUrl();
             }, 4000);
         })
     }
@@ -159,8 +160,8 @@ export default {
     background-image: url("../assets/mvis_txt.png");
     position: absolute;
     top: 10%;
-    left: 10%;
-    width: 40%;
+    left: 20%;
+    width: 25%;
     height: 30%;
     max-width: 469px;
     
@@ -296,9 +297,9 @@ export default {
 }
 #b_ul p:not(:first-child){
     margin-top: -2%;
-    font-size: 12px !important;
-    color: #000 !important;
-    font-weight: 200 !important;
+    font-size: 12px;
+    color: #000;
+    font-weight: 200;
 }
 #time{
     color: #888888;
@@ -365,23 +366,30 @@ export default {
     #top1 a ul li, #top2 a ul li{
         font-size: 12px !important;
     }
-    #b_ul p[data-v-54d3a52e] {
-        font-size: 12px !important;
-        color: #000 !important;
-        font-weight: 200 !important;
-    }
     #time{
         font-size: 11px;
     }
 }
 @media screen and (max-width: 1024px) {
     #wrap{
-        display:flex;
-        flex-direction: column;
+        display :block;
+        /* flex-direction: column; */
+        height: unset;
+        position: relative
     }
     #mainWrap{
         display:block;
         position:relative;
+        height: unset;
+    }
+    #image{
+        padding: 26%;
+        height: unset;
+        position: relative;
+        background-size: contain;
+    }
+    #hoverimg{
+        left:5%
     }
     #shortcut{
         max-width: unset;
@@ -390,7 +398,121 @@ export default {
         position:relative;
         bottom: unset;
     }
+    #top1 a, #top2 a{
+        padding-top: 90%;
+    }
+    #b_ul{
+        padding-top: 6.5%;
+    }
+    #footer{
+        display: block;
+        position: relative;
+    }
     
+}
+@media screen and (max-width: 640px){
+    #mainWrap{
+        height: unset;
+    }
+    #image{
+        position: relative;
+        background-size: cover;
+        padding-top: 52%;
+        width: 100%;
+    }
+    #hoverimg{
+        top: 10%;
+        left: 5%;
+        width: 40%;
+        height: 45%;
+    }
+    #navi{
+        display:block;
+        width: 100%;
+    }
+    #navi a img{
+        width: 15%;
+    }
+    #top{
+        display:inline-block;
+        width: 100%;
+        height: unset;
+    }
+    #top1{
+        position: relative;
+        display:inline-block ;
+        width: 50%;
+        padding-top: 40%;
+    }
+    #top2{
+        position: relative;
+        display:inline-block ;
+        width: 50%;
+        padding-top: 40%;
+    }
+    #top1 a, #top2 a{
+        padding-top: 10%;
+    }
+    #bottom{
+        margin-top: -2%;
+        display:inline-block;
+        width: 100%;
+        height: unset;
+    }
+    #b_top{
+        display: block;
+    }
+    #b_top1, #b_top2{
+        display: inline-block;
+        width:50%;
+    }
+    #b_top1 a, #b_top2 a{
+        padding-top: 90%;
+    }
+    #b_top1 a ul, #b_top2 a ul{
+        position: absolute;
+        top: 10%;
+    }
+    #b_top1 a ul li, #b_top2 a ul li{
+        font-size: 20px !important;
+    }
+    .b_top_img{
+        position: absolute;
+        width: 15%;
+        right: 5%;
+        bottom: 10%;
+    }
+    #b_bottom{
+        display: table;
+        width: 100%
+    }
+    #b_ul{
+        position: relative;
+        display: table-cell;
+        width: 100%;
+        padding-top: 3%;
+        padding-bottom: 4%;
+        /* top: 20%; */
+        line-height: 1.9;
+        
+    }
+    #b_ul p{
+        font-size: 14px !important;
+        font-weight: 500 !important;
+    }
+    #b_ul strong{
+        font-size: 25px;
+    }
+    #time{
+        font-size: 15px;
+    }
+    #b_li_bottom1{
+        font-size: 18px !important;
+    }
+    #b_li_bottom2{
+        font-size: 18px !important;
+    }
+
 }
  @font-face { 
     font-family: 'GmarketSansLight'; 
