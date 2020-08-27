@@ -90,7 +90,7 @@ export default {
         },
         getMain: function(){
             if(this.currentPage !== -1){
-                this.$router.push("/main");
+                this.$router.push("/");
                 this.currentPage = -1;
             }
         },
@@ -100,7 +100,7 @@ export default {
         },
   },
   mounted(){
-      this.$router.push("/main");
+    //   this.$router.push("/");
       console.log("currentPage:" + this.currentPage);
       if(this.currentPage === 0){
           document.getElementById("footer").style.display = "none";

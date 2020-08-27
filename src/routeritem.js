@@ -24,7 +24,7 @@ import center from './components/center/Center'
 import main from './components/Main'
 
 let routes = [
-    {path: '/main', component: main},
+    {path: '/', component: main},
     // introduction components
     {path: '/introduction', component: introduction},
     {path: '/introduction02', component: introduction02},
