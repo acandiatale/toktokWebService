@@ -120,14 +120,15 @@ export default {
        
     },
     mounted: function () {
-        this.$nextTick(function () {
+        // this.$nextTick(function () {
             this.intervalID = setInterval(() => {
                 this.imageUrl();
             }, 4000);
-        })
+        // })
     },
-    beforeRouteLeave(){
+    beforeRouteLeave(to, from, next){
         clearInterval(this.intervalID)
+        next();
     }
 }
 </script>
