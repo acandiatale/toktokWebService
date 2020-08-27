@@ -51,7 +51,7 @@ export default {
   data: function() {
       return {
         items: [
-            {id: 0, text: "톡톡경희한의원",router: "/introduction",
+            {id: 0, text: "톡톡경희한의원", router: "/introduction",
                 content: [{text: "인사말", router: "/introduction"}, {text: "원장님소개", router: "/introduction02"}, {text: "병원갤러리", router: "/introduction03"},
                 {text: "진료안내", router: "/introduction04"}, {text: "오시는길", router: "/introduction05"}]},
             {id: 1, text: "기본진료", router: "/care",

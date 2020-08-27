@@ -1,7 +1,7 @@
 <template>
     <div id="wrap">
         <div id="mainWrap">
-            <div id="image" class="imgclass0">
+            <div id="image" :class="imgClass">
                 <div id="hoverimg">
                 </div>
             </div>
@@ -76,7 +76,6 @@
     </div>
 </template>
 <script>
-import { setInterval } from 'timers';
 export default {
     data(){
         return{
@@ -85,6 +84,8 @@ export default {
             position: 0,
             view1: false,
             view2: false,
+            imgClass: "imgclass0",
+            intervalID: Object,
         }
     },
     methods: {
@@ -97,7 +98,7 @@ export default {
                 this.position = 0;
                 console.log("interval" + this.position);
             }
-            document.getElementById("image").className =  "imgclass"+ this.position;
+            this.imgClass =  "imgclass"+ this.position;
         },
         introduction: function() {
             this.$router.push('/introduction');
@@ -120,10 +121,13 @@ export default {
     },
     mounted: function () {
         this.$nextTick(function () {
-            setInterval(() => {
+            this.intervalID = setInterval(() => {
                 this.imageUrl();
             }, 4000);
         })
+    },
+    beforeRouteLeave(){
+        clearInterval(this.intervalID)
     }
 }
 </script>
